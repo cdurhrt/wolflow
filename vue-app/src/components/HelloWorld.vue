@@ -1,10 +1,18 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted, reactive, Ref, ref } from 'vue'
 import { NButton } from 'naive-ui'
+import { cloneDeep } from 'lodash';
 
 defineProps<{ msg: string }>()
 
 const count = ref(0)
+
+let num = ref(0)
+onMounted(() => {
+  num.value++
+  console.log('cloneDeep', cloneDeep)
+  console.log('num.value', num.value)
+})
 </script>
 
 <template>

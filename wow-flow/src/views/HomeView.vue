@@ -1,9 +1,17 @@
 <script setup lang="ts">
-import TheWelcome from "@/components/TheWelcome.vue";
+import { cloneDeep, forEach } from "lodash-es";
+import { NButton } from "naive-ui";
+
+const reactvieee = cloneDeep({ reactvieee: "23" });
+console.log("reactvieee :>> ", reactvieee);
+forEach(reactvieee, (value, key) => {
+  console.log("value :>> ", value);
+  console.log("key :>> ", key);
+});
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <div>Home</div>
+  <n-button>naive-ui button</n-button>
+  <RouterView />
 </template>

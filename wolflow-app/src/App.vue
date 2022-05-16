@@ -3,13 +3,15 @@ import LayoutView from "./components/layout/LayoutView.vue";
 import { NConfigProvider, darkTheme } from "naive-ui";
 import { ref } from "vue";
 
-const isDark = ref(false);
+const isDark = ref(true);
 </script>
 
 <template>
   <n-config-provider :theme="isDark ? darkTheme : undefined">
     <div class="app-container">
-      <layout-view><RouterView /></layout-view>
+      <layout-view>
+        <RouterView />
+      </layout-view>
     </div>
   </n-config-provider>
 </template>

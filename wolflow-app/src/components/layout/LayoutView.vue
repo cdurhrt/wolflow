@@ -1,6 +1,15 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { NMenu, NLayout, NLayoutSider, NSpace, NScrollbar } from "naive-ui";
+import {
+  NMenu,
+  NLayout,
+  NLayoutSider,
+  NLayoutHeader,
+  NLayoutContent,
+  NLayoutFooter,
+  NSpace,
+  NScrollbar,
+} from "naive-ui";
 import { routeNavs } from "./route-navs";
 
 const activeKey = ref<string | null>(null);
@@ -13,7 +22,7 @@ const collapsedWidth = 64;
   <n-space vertical>
     <n-layout has-sider>
       <n-layout-sider
-        class="n-layout-sider"
+        class="wfw-layout-sider"
         bordered
         collapse-mode="width"
         :collapsed-width="collapsedWidth"
@@ -33,20 +42,18 @@ const collapsedWidth = 64;
         </n-scrollbar>
       </n-layout-sider>
       <n-layout>
-        <div>
-          <n-scrollbar
-            style="max-height: 100vh; padding: 1rem; box-sizing: border-box"
-          >
+        <n-layout-content content-style="padding: 1rem;">
+          <n-scrollbar style="max-height: 100vh; box-sizing: border-box">
             <slot></slot>
           </n-scrollbar>
-        </div>
+        </n-layout-content>
       </n-layout>
     </n-layout>
   </n-space>
 </template>
 
 <style scoped>
-.n-layout-sider {
+.wfw-layout-sider {
   height: 100vh;
 }
 </style>

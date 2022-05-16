@@ -8,7 +8,7 @@ const flowRoutes: RouteRecordRaw[] = [
     name: "flow",
     component: () => import("./FlowView.vue"),
     ...meta({
-      label: "流程",
+      label: "流",
       icon: WaterOutline,
     }),
   },

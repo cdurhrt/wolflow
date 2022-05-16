@@ -13,7 +13,7 @@ export function meta(m: RouteMeta) {
   return { meta: m };
 }
 
-const routes = [...homeRoutes, ...aboutRoutes, ...flowRoutes];
+const routes = [...homeRoutes, ...flowRoutes, ...aboutRoutes];
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

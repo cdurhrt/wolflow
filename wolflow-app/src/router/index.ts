@@ -1,30 +1,23 @@
+import aboutRoutes from "@/modules/about/routes";
+import flowRoutes from "@/modules/flow/routes";
+import homeRoutes from "@/modules/home/routes";
+import type { Component } from "vue";
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+
+export type RouteMeta = {
+  label: string;
+  icon?: Component;
+};
+
+export function meta(m: RouteMeta) {
+  return { meta: m };
+}
+
+const routes = [...homeRoutes, ...aboutRoutes, ...flowRoutes];
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: "/",
-      name: "home",
-      component: HomeView,
-      children: [
-        {
-          path: "/dashboard",
-          name: "dashboard",
-          component: () => import("../views/DashboardView.vue"),
-        },
-      ],
-    },
-    {
-      path: "/about",
-      name: "about",
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import("../views/AboutView.vue"),
-    },
-  ],
+  routes,
 });
 
 export default router;

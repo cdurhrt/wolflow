@@ -1,13 +1,24 @@
 <script setup lang="ts">
-import router from "./router";
+import LayoutView from "./components/layout/LayoutView.vue";
+import { NConfigProvider, darkTheme } from "naive-ui";
+import { ref } from "vue";
 
-const route = router.options.routes;
-console.log("route :>> ", route);
+const isDark = ref(false);
 </script>
 
 <template>
-  <div>
-    menu
-    <RouterView />
-  </div>
+  <n-config-provider :theme="isDark ? darkTheme : undefined">
+    <div class="app-container">
+      <layout-view><RouterView /></layout-view>
+    </div>
+  </n-config-provider>
 </template>
+
+<style>
+@import "@/assets/naive-overrides.css";
+
+.app-container {
+  max-height: 100vh;
+  overflow-y: hidden;
+}
+</style>

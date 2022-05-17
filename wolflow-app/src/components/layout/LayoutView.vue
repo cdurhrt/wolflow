@@ -4,9 +4,7 @@ import {
   NMenu,
   NLayout,
   NLayoutSider,
-  NLayoutHeader,
   NLayoutContent,
-  NLayoutFooter,
   NSpace,
   NScrollbar,
 } from "naive-ui";

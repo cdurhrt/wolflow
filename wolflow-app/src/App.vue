@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import LayoutView from "./components/layout/LayoutView.vue";
 import { NConfigProvider, darkTheme } from "naive-ui";
-import { ref } from "vue";
+import { useThemeStore } from "./stores/theme";
 
-const isDark = ref(true);
+const themeStore = useThemeStore();
 </script>
 
 <template>
-  <n-config-provider :theme="isDark ? darkTheme : undefined">
+  <n-config-provider :theme="themeStore.darkMode ? darkTheme : undefined">
     <div class="app-container">
       <layout-view>
         <RouterView />

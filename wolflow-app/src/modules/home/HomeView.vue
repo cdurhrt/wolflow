@@ -7,5 +7,4 @@ import { NGrid, NGridItem } from "naive-ui";
   <n-grid>
     <n-grid-item :span="6"> <DarkSwitch /></n-grid-item>
   </n-grid>
-  <div>Home View</div>
 </template>

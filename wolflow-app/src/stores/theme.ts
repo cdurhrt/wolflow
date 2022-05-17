@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 export const useThemeStore = defineStore({
   id: "themeStore",
   state: () => ({
-    darkMode: getDefaultDarkMode(),
+    darkMode: defaultDarkMode(),
   }),
   getters: {},
   actions: {
@@ -14,7 +14,7 @@ export const useThemeStore = defineStore({
   },
 });
 
-const getDefaultDarkMode = () => {
+const defaultDarkMode = () => {
   return localStorage.getItem("themeStore-darkMode")?.length
     ? JSON.parse(localStorage.getItem("themeStore-darkMode") as string)
     : (window.matchMedia &&

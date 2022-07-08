@@ -1,3 +1,6 @@
 {
-  "recommendations": ["johnsoncodehk.volar", "johnsoncodehk.vscode-typescript-vue-plugin"]
+  "recommendations": [
+    "Vue.volar",                        // Vue 3 Language Features 
+    "Vue.vscode-typescript-vue-plugin", // Typescript Vue Plugin (Volar)
+  ]
 }

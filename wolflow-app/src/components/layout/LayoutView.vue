@@ -20,6 +20,7 @@ const collapsedWidth = 64;
   <n-space vertical>
     <n-layout has-sider>
       <n-layout-sider
+        v-if="false"
         class="wfw-layout-sider"
         bordered
         collapse-mode="width"

@@ -1,11 +1,21 @@
 import { meta } from "@/router";
 import { HomeOutline } from "@vicons/ionicons5";
 import type { RouteRecordRaw } from "vue-router";
+import GridLearningVue from "./GridLearning.vue";
 import HomeViewVue from "./HomeView.vue";
 
 const homeRoutes: RouteRecordRaw[] = [
   {
     path: "/",
+    name: "grid",
+    component: GridLearningVue,
+    ...meta({
+      label: "Grid Layout",
+      icon: HomeOutline,
+    }),
+  },
+  {
+    path: "/home",
     name: "home",
     component: HomeViewVue,
     ...meta({

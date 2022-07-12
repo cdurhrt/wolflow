@@ -7,19 +7,19 @@ import HomeViewVue from "./HomeView.vue";
 const homeRoutes: RouteRecordRaw[] = [
   {
     path: "/",
-    name: "grid",
-    component: GridLearningVue,
-    ...meta({
-      label: "Grid Layout",
-      icon: HomeOutline,
-    }),
-  },
-  {
-    path: "/home",
     name: "home",
     component: HomeViewVue,
     ...meta({
       label: "首页",
+      icon: HomeOutline,
+    }),
+  },
+  {
+    path: "/grid",
+    name: "grid",
+    component: GridLearningVue,
+    ...meta({
+      label: "Grid Layout",
       icon: HomeOutline,
     }),
   },

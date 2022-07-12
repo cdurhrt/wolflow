@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import { computed } from "@vue/reactivity";
 import { onMounted, reactive, ref } from "vue";
 
-const colors = new Array(50).fill(0).reduce((acc) => {
+const colors = new Array(1000).fill(0).reduce((acc) => {
   const color = getColor();
   acc.push(color);
   return acc;
@@ -10,6 +11,21 @@ const colors = new Array(50).fill(0).reduce((acc) => {
 const boxs = reactive(colors);
 const vw = ref(window.innerWidth);
 const vh = ref(window.innerHeight);
+
+const yCnt = ref(20);
+const rectSize = computed(() => vh.value / yCnt.value);
+const xCnt = computed(() => Math.floor(vw.value / rectSize.value));
+
+const gridTplRows = computed(
+  () => `repeat(${yCnt.value}, ${rectSize.value}px)`
+);
+const gridTplCols = computed(
+  () => `repeat(${xCnt.value}, ${rectSize.value}px)`
+);
+
+const cssStyle = reactive({
+  justifyContent: "center",
+});
 
 onMounted(() => {
   window.onresize = () => {
@@ -35,7 +51,7 @@ function getColor() {
       class="box"
       :style="{ background: item }"
     >
-      {{ index }}
+      {{ item }}
     </div>
   </div>
 </template>
@@ -44,7 +60,9 @@ function getColor() {
 .grid-top-parent {
   display: grid;
   height: 100vh;
-  grid-template-rows: repeat(5, 100px);
-  grid-template-columns: repeat(10, 100px);
+  grid-template-rows: v-bind(gridTplRows);
+  grid-template-columns: v-bind(gridTplCols);
+  justify-content: v-bind("cssStyle.justifyContent");
+  font-size: 12px;
 }
 </style>

@@ -5,7 +5,7 @@ console.log("props.flowIn :>> ", props.flowIn);
 </script>
 
 <template>
-  <div>plugin-b</div>
+  <div>plugin-c</div>
 </template>
 
 <style scoped></style>

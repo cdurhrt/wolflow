@@ -1,21 +1,28 @@
 <script setup lang="ts">
 import { mapValues } from "lodash";
-import { defineAsyncComponent } from "vue";
+import { computed, defineAsyncComponent, reactive } from "vue";
 
-const cpDict = {
+const cpDict = reactive({
   PluginA: "./components/plugin-a.vue",
   PluginB: "./components/plugin-b.vue",
-};
-const asyncComponents = mapValues(cpDict, (item) =>
-  defineAsyncComponent(() => import(item))
+});
+
+const asyncComponents = computed(() =>
+  mapValues(cpDict, (item: string) =>
+    defineAsyncComponent(() => import(/* @vite-ignore */ item))
+  )
 );
-console.log("asyncComponents :>> ", asyncComponents);
+
+function addPluginC() {
+  Object.assign(cpDict, { PluginC: "./components/plugin-c.vue" });
+}
 </script>
 
 <template>
   <div>
+    <button classc="primary" @click="addPluginC">add c</button>
     <template v-for="(item, key, index) in asyncComponents" :key="index">
-      <component :is="item"></component>
+      <component :is="item" :flow-in="{ test: '1' }"></component>
     </template>
   </div>
 </template>

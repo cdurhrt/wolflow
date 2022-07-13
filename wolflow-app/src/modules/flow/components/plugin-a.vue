@@ -1,12 +1,11 @@
 <script setup lang="ts">
-const props = defineProps(["in"]);
+const props = defineProps(["flowIn"]);
 
-console.log("props.in :>> ", props.in);
+console.log("props.flowIn :>> ", props.flowIn);
 </script>
 
 <template>
-  <div>{{ props.in }}</div>
-  1
+  <div>plugin-a</div>
 </template>
 
 <style scoped></style>
